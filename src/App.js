@@ -11,6 +11,7 @@ function App() {
 
 	const onClickHandler = () => {
 		setLoading(true)
+		setActiveLink(0)
 		axios
 			.get('https://randomuser.me/api/')
 			.then((response) => {
@@ -53,6 +54,8 @@ function App() {
 		setActiveLink(index)
 	}
 
+	const style = { color: 'green' }
+
 	return (
 		<div className='app'>
 			<h1>Random User Generator App</h1>
@@ -72,6 +75,7 @@ function App() {
 											<i
 												className={icon}
 												onMouseEnter={() => activeLinkHandler(index)}
+												style={activeLink === index ? style : null}
 											></i>
 										)
 									})}
